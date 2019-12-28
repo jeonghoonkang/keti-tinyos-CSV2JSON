@@ -21,9 +21,9 @@
 - 대용량의 CSV 파일을 처리 중에 발생할 수 있는 오류 CSV 검색, 확인 가능
 
 ## 초기 개발자
-- 채철승 ( https://github.com/ChulseoungChae )
-- 김형구 ( https://github.com/KimHyeongGoo )
-- 강정훈, Jeonghoon Kang ( https://github.com/jeonghoonkang )
+- 채철승, Chulseung Chae, KETI ( https://github.com/ChulseoungChae )
+- 김형구, Hyungkoo Kim, KETI ( https://github.com/KimHyeongGoo )
+- 강정훈, Jeonghoon Kang, KETI ( https://github.com/jeonghoonkang )
 
 
 ## 세부기능 
