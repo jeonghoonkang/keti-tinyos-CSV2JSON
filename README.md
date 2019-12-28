@@ -3,7 +3,8 @@
 ## 개요
 - IoT 데이터 수집, 빅데이터 분석을 위한 처리 및 JSON 생성 소프트웨어
 - 텍스트 CSV 파일을 input 받아 JSON 파일 생성
-- 주요 처리 기능
+
+### 주요 처리 기능
 1. 입력 CSV 파일의 필드 이름을 분석 
 2. 디렉토리 내의 CSV 파일 갯수 카운트
 3. 디렉토리 내의 CSV 파일 종류 (필드이름 다른경우) 카운트
@@ -12,7 +13,7 @@
 6. 멀티프로세싱을 위한 프로세서 갯수 설정 기능
 
 
-## 주요 개발자
+## 초기 개발자
 - 채철승 ( https://github.com/ChulseoungChae )
 - 김형구 ( https://github.com/KimHyeongGoo )
 - 강정훈, Jeonghoon Kang ( https://github.com/jeonghoonkang )
