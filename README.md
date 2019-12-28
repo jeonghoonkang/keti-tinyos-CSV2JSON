@@ -26,7 +26,10 @@
 - 강정훈, Jeonghoon Kang, KETI ( https://github.com/jeonghoonkang )
 
 
-## 세부기능 
+## 설치방법 
+- TBD
+
+## 실행 예
 - TBD
 
 ## 개발 목적, 저작권
