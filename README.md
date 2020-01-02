@@ -68,13 +68,13 @@
   ![CSVJSON](./img/run_diagram.png)
   
 ### 각 파일 설명
-1. run.sh : 
+#### 1. run.sh : 
 - 각 파이썬 파일을 실행시켜주고 사용자로부터 입력을 받음
     
-2. CSVJSON_INPUT.py : 
+#### 2. CSVJSON_INPUT.py : 
 - 모든 디렉토리의 CSV/excel 파일을 찾고 데이터프레임으로 만들어 칼럼에 따라 분류된 파일 종류와 칼럼들을 출력하여 사용자에게 보여줌
      
-3. CSVJSON_main.py : 
+#### 3. CSVJSON_main.py : 
 - ../originalCSVData/ 디렉토리(또는 사용자 지정 디렉토리)와 하위 디렉토리안의 모든 CSV 파일 중 선택한 입력파일 종류만 읽어 선택된 칼럼의 데이터 처리
 - OpenTSDB에 입력할 수 있는 Json형식으로 변환
 - 멀티 프로세싱 처리
@@ -92,20 +92,20 @@
   - FrameWork
   ![framework](./img/multi_framework.png)
      
-4. CSVJSON_change.py :
+#### 4. CSVJSON_change.py :
 - CSVJSON_main에서 만들어진 json파일의 내용(metric, timestamp, tags등)을 수정해준다.
      
-5. type_file.py :
+#### 5. type_file.py :
 - CSVJSON_INPUT.py 실행시 초기에 만들어 지는 python 파일.
 - 필드 목록 출력 runtime을 간소화 하기위해 생성되며 각 파일의 위치와 필드목록을 가지고있는 변수 file_type 딕셔너리와 각 디렉토리의 파일명과 lines수 정보를 가지고 있는 딕셔너리를 가지고 있다.
 
-6. pcs.py & keti_multiprocessing.py
+#### 6. pcs.py & keti_multiprocessing.py
 - CSVJSON_main의 멀티프로세서 생성, 관리 및 동작 수행을 처리
 
-7. json_parsing.py
+#### 7. json_parsing.py
 - CSVJSON_change에서 json파일을 수정하기 전 데이터의 일부분을 출력해줌
 
-8. _sw_make_input.txt
+#### 8. _sw_make_input.txt
 - CSVJSON_input.py의 출력 내용을 저장한 텍스트파일
 - 콘솔 화면에서 보기 불편할 때 대신 보는 용도
 
