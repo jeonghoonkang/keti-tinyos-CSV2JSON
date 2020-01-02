@@ -4,7 +4,7 @@
 # Author : Chaechulseung, Hyungkoo Kimm, Jeonghoon Kang 
 
 
-printf "원하는 작업종류의 번호를 입력해주세요[ 1(csv to json) / 2(json field key change)('Enter' => 1) ] : "
+printf "원하는 작업종류의 번호를 입력해주세요[ 1(CSV to JSON) / 2(JSON field key change)('Enter' => 1) ] : "
 read input0
 work=''$input0
 
