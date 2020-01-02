@@ -47,7 +47,7 @@
       - outdir (json파일이 저장될 경로)
       - pn (생산자 프로세스의 수)
       - cn (소비자 프로세스의 수)
-    - python $MainCode rename_field strold strnew
+    - python CSVJSON_change.py rename_field strold strnew
       - rename_field (수정할 key or value)
       - strold (수정할 key/value의 string)
       - strnew (수정될 key/value의 string)
