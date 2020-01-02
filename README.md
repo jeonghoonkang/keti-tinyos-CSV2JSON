@@ -65,7 +65,7 @@
 
 ### 전체 코드 동작
   - 모식도
-    ![CSVJSON](./img/CSVJSON.png)
+    ![CSVJSON](./img/run_diagram.png)
   
 ### 각 파일 설명
 1. run.sh : 
