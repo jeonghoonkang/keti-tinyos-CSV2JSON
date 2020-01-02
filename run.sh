@@ -43,24 +43,24 @@ then
     fi
     filekind=${input1}
     
-    printf "JSON으로 변환할 field 번호를 입력해주세요 ('Enter' => 11): "
+    printf "JSON으로 변환할 field 번호를 입력해주세요 ('Enter' => 13): "
     read input2
     if [ "${input2}" == '' ];then
-        input2='11'
+        input2='13'
     fi
     field=${input2}
 
-    printf "timestamp로 지정 할 field 번호를 입력해주세요 ('Enter' => 26): "
+    printf "timestamp로 지정 할 field 번호를 입력해주세요 ('Enter' => 28): "
     read input3
    if [ "${input3}" == '' ];then
-        input3='26'
+        input3='28'
     fi
     ts=${input3}
 
-    printf "car ID로 지정 할 field 번호를 입력해주세요 ('Enter' => 25): "
+    printf "car ID로 지정 할 field 번호를 입력해주세요 ('Enter' => 27): "
     read input4
    if [ "${input4}" == '' ];then
-        input4='25'
+        input4='27'
     fi
     carid=${input4}
 
