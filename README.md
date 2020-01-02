@@ -54,18 +54,18 @@
     
     - 실행화면
       1. 각 디렉토리별 csv파일 정보 화면
-        - ![run1](./img/run1.png)
-      2. 필드 목록 화면
-        - ![run2](./img/run2.png)
+      - ![run1](./img/run1.png)
+      2. csv 필드 목록 화면
+      - ![run2](./img/run2.png)
       3. 사용자 입력 화면
-        - ![run3](./img/run3.png)
+      - ![run3](./img/run3.png)
 
 
 ## 코드 실행 순서 및 설명
 
 ### 전체 코드 동작
   - 모식도
-    ![CSVJSON](./img/run_diagram.png)
+  ![CSVJSON](./img/run_diagram.png)
   
 ### 각 파일 설명
 1. run.sh : 
@@ -90,7 +90,7 @@
     - 멀티 프로세스 적용(프로세스 수(Cn)를 사용자로 부터 입력받을 수 있음)
     - Producer Process들의 처리 결과가 각 work_done_queue(1,2,...,n)에 순차적으로 전달됨
   - FrameWork
-    - ![framework](./img/multi_framework.png)
+  ![framework](./img/multi_framework.png)
      
 4. CSVJSON_change.py :
 - CSVJSON_main에서 만들어진 json파일의 내용(metric, timestamp, tags등)을 수정해준다.
