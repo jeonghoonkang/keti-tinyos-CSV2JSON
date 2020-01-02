@@ -11,6 +11,7 @@
 4. JSON 으로 변환할 필드정보 출력 및 사용자 선택 받음
 5. 멀티프로세싱 적용 (CSV 로딩, 필드추출, JSON 변환후 파일 저장)
 6. 멀티프로세싱을 위한 프로세서 갯수 설정 기능
+7. 변환된 JSON파일의 데이터 정보(필드, metric, tags의 key/value) 수정
 
 ### 주요 아이디어
 - 대용량의 CSV 파일을 멀티 처리 가능함
@@ -31,7 +32,82 @@
 
 ## 실행 방법
 - run.sh 을 실행하면 됩니다. (예, bash run.sh)
-  - 실행관련 상세 내용 (LINK) 
+  - 실행관련 상세 내용
+    - python CSVJSON_INPUT.py file_type input_dir
+      - file_type (csv)
+      - input_dir (원본 csv파일이 존재하는 디렉토리)
+    - python CSVJSON_main.py filetype jsonpack filekind field ts carid metric outdir pn cn 
+      - file type (csv)
+      - bundle (파일로 묶을 json data 갯수)
+      - filekind (filed 목록별로 분류된 파일 종류 번호 (1,2,3,...) )
+      - field (처리할 field index)
+      - ts (저장될 timestamp field index)
+      - carid (저장될 car number field index)
+      - metric (json파일 변환시 저장될 metric명)
+      - outdir (json파일이 저장될 경로)
+      - pn (생산자 프로세스의 수)
+      - cn (소비자 프로세스의 수)
+    - python $MainCode rename_field strold strnew
+      - rename_field (수정할 key or value)
+      - strold (수정할 key/value의 string)
+      - strnew (수정될 key/value의 string)
+    
+    - 실행화면
+      1. 각 디렉토리별 csv파일 정보 화면
+        - ![run1](./img/run1.png)
+      2. 필드 목록 화면
+        - ![run2](./img/run2.png)
+      3. 사용자 입력 화면
+        - ![run3](./img/run3.png)
+
+
+## 코드 실행 순서 및 설명
+
+### 전체 코드 동작
+  - 모식도
+    ![CSVJSON](./img/CSVJSON.png)
+  
+### 각 파일 설명
+1. run.sh : 
+- 각 파이썬 파일을 실행시켜주고 사용자로부터 입력을 받음
+    
+2. CSVJSON_INPUT.py : 
+- 모든 디렉토리의 CSV/excel 파일을 찾고 데이터프레임으로 만들어 칼럼에 따라 분류된 파일 종류와 칼럼들을 출력하여 사용자에게 보여줌
+     
+3. CSVJSON_main.py : 
+- ../originalCSVData/ 디렉토리(또는 사용자 지정 디렉토리)와 하위 디렉토리안의 모든 CSV 파일 중 선택한 입력파일 종류만 읽어 선택된 칼럼의 데이터 처리
+- OpenTSDB에 입력할 수 있는 Json형식으로 변환
+- 멀티 프로세싱 처리
+  - main (CSV file -> DF)
+    - CSV 파일들을 하나씩 읽어서 DataFrame으로 변환
+    - DataFrame을 생산자 프로세스 수(Pn)만큼 분할 하여 각 생산자 프로세스 큐(work_basket_queue)에 전달
+  - Producer Process (DF -> Json Data)
+    - 처리 시간이 가장 긴 단계로 사용자로부터 프로세스 갯수를 입력받음
+    - 큐에서 분할된 dataFrame을 받은 후 JsonData로 변환후 buffer에 저장
+    - buffer를 소비자 프로세스 큐(work_done_queue)에 전달
+  - Consumer Process (Json Data -> JsonFile)
+    - 각 큐에서 받은 buffer를 모두 합친 후 Json file로 저장
+    - 멀티 프로세스 적용(프로세스 수(Cn)를 사용자로 부터 입력받을 수 있음)
+    - Producer Process들의 처리 결과가 각 work_done_queue(1,2,...,n)에 순차적으로 전달됨
+  - FrameWork
+    - ![framework](./img/multi_framework.png)
+     
+4. CSVJSON_change.py :
+- CSVJSON_main에서 만들어진 json파일의 내용(metric, timestamp, tags등)을 수정해준다.
+     
+5. type_file.py :
+- CSVJSON_INPUT.py 실행시 초기에 만들어 지는 python 파일.
+- 필드 목록 출력 runtime을 간소화 하기위해 생성되며 각 파일의 위치와 필드목록을 가지고있는 변수 file_type 딕셔너리와 각 디렉토리의 파일명과 lines수 정보를 가지고 있는 딕셔너리를 가지고 있다.
+
+6. pcs.py & keti_multiprocessing.py
+- CSVJSON_main의 멀티프로세서 생성, 관리 및 동작 수행을 처리
+
+7. json_parsing.py
+- CSVJSON_change에서 json파일을 수정하기 전 데이터의 일부분을 출력해줌
+
+8. _sw_make_input.txt
+- CSVJSON_input.py의 출력 내용을 저장한 텍스트파일
+- 콘솔 화면에서 보기 불편할 때 대신 보는 용도
 
 ## 개발 목적, 저작권
 - 본 S/W는 전자부품연구원 (KETI) 임베디드SW 연구센터에서 2019년 개발되었습니다
