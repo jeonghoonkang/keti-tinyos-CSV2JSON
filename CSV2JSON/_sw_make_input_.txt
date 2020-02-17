@@ -1,0 +1,81 @@
+
+갱신되거나(삭제 또는 수정된) 원본 디렉토리에 존재하지 않는 파일 목록
+
+./originalCSVData/201912/01225797015.csv
+./originalCSVData/201912/01225797295.csv
+./originalCSVData/201912/01225797121.csv
+./originalCSVData/201912/01225797277.csv
+./originalCSVData/201912/01225797283.csv
+./originalCSVData/201912/01225797239.csv
+./originalCSVData/201912/01225797226.csv
+./originalCSVData/201912/01225797044.csv
+./originalCSVData/201912/01225797203.csv
+./originalCSVData/201912/01225797247.csv
+
+CSV 파일 탐색 시작
+
+ [loop] recursive searching ./originalCSVData
+ [loop] recursive searching ./originalCSVData/201906
+ [loop] recursive searching ./originalCSVData/201907
+
+갱신될(추가된) 파일 목록 수 (개): 8
+
+
+--------------------------디렉토리 정보---------------------------
+
+./originalCSVData/201907
+01225797069.csv : 82663 lines
+01225797042.csv : 80188 lines
+01225797087.csv : 84248 lines
+01225797086.csv : 81822 lines
+total : 328921 lines
+
+./originalCSVData/201906
+01225797285.csv : 72095 lines
+01225797077.csv : 34169 lines
+01225797246.csv : 42905 lines
+01225797044.csv : 47091 lines
+total : 196260 lines
+
+
+----------------------------필드 목록-----------------------------
+
+1번째 type file : 8
+0          Unnamed: 0          
+1         ACCEL_PEDAL          
+2           ACCEL_X            
+3           ACCEL_Y            
+4          AIR_GAUGE           
+5        AMBIENT_TEMPER        
+6             AMP              
+7       BATTERY_VOLTAGE        
+8      CHANGE_GEAR_STEPS       
+9         CHANGE_LEVER         
+10        COOLANT_TEMPER        
+11       DEVICE_STATUS_CD       
+12      DRIVE_LENGTH_TOTAL      
+13         DRIVE_SPEED          
+14         DRIVE_STATUS         
+15             DTC              
+16         ENGINE_GAUGE         
+17      ENGINE_OIL_TEMPER       
+18        ENGINE_TORQUE         
+19       FUEL_CONSUM_DAY        
+20      FUEL_CONSUM_TOTAL       
+21          GPS_ANGLE           
+22           GPS_LAT            
+23           GPS_LONG           
+24        INTAKE_TEMPER         
+25             MAF              
+26         ORIGIN_TYPE          
+27          PHONE_NUM           
+28         RECORD_TIME          
+29           REQ_TIME           
+30             RPM              
+31           TEMPER1            
+32           TEMPER2            
+33         VEHICLE_TYPE         
+34             _id              
+
+
+------------------------------------------------------------------
