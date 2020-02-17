@@ -31,7 +31,7 @@
 - TBD
 
 ## 실행 방법
-- run.sh 을 실행하면 됩니다. (예, bash run.sh)
+- ./CSVJSON/run.sh 을 실행하면 됩니다. (예, bash run.sh)
   - 실행관련 상세 내용
     - python CSVJSON_INPUT.py file_type input_dir
       - file_type (csv)
